@@ -1,0 +1,104 @@
+/*
+ * Copyright (C) 2024 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+ 
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'maven-publish'
+}
+
+android {
+    compileSdk 34
+
+    defaultConfig {
+        minSdk 19
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+        
+        namespace 'com.kilobyte'
+        
+    }
+
+    buildTypes {
+        release {
+            shrinkResources false
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+
+    lintOptions {
+        abortOnError false
+        checkReleaseBuilds false
+    }
+}
+
+dependencies {
+    // Dynamic Animation library
+    implementation 'androidx.dynamicanimation:dynamicanimation:1.0.0'
+
+    // AndroidX Core library
+    implementation 'androidx.core:core-ktx:1.12.0'
+
+    // AndroidX Annotation library
+    implementation 'androidx.annotation:annotation:1.6.0'
+
+    // Activity Options library
+    implementation 'androidx.core:core:1.12.0' // قد تحتاج هذه المكتبة لدعم ActivityOptionsCompat
+}
+
+publishing {
+    publications {
+        release(MavenPublication) {
+            afterEvaluate {
+                from components.release
+            }
+            groupId = 'com.github.alex11111115'
+            artifactId = 'AnimationPro'
+            version = '1.0'
+
+            pom {
+                name = 'AnimationPro'
+                description = ''
+                url = 'https://github.com/alex11111115/AnimationPro'
+                licenses {
+                    license {
+                        name = 'The Apache License, Version 2.0'
+                        url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+                developers {
+                    developer {
+                        id = 'alex11111115'
+                        name = 'obieda'
+                        email = 'bodybody15151@gmail.com'
+                    }
+                }
+                scm {
+                    connection = 'scm:git:git://github.com/alex11111115/AnimationPro.git'
+                    developerConnection = 'scm:git:ssh://github.com/alex11111115/AnimationPro.git'
+                    url = 'https://github.com/alex11111115/AnimationPro'
+                }
+            }
+        }
+    }
+}
