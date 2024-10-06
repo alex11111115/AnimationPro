@@ -8,6 +8,7 @@ import android.view.WindowManager;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import androidx.activity.OnBackPressedCallback;
 
 /**
  * Activity that handles the page view with swipeable card functionality
@@ -30,6 +31,7 @@ public class PageActivity extends AppCompatActivity {
         // Initialize views and setup animations
         initializeViews();
         setupAnimations();
+        setupBackPressedCallback();
     }
 
     /**
@@ -67,9 +69,16 @@ public class PageActivity extends AppCompatActivity {
     /**
      * Handle back button press with custom transition animation
      */
-    @Override
-    public void onBackPressed() {
-        new ActivityTransitionManager.TransitionBuilder(this)
-            .start();
+    private void setupBackPressedCallback() {
+        OnBackPressedCallback callback = new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                new ActivityTransitionManager.TransitionBuilder(PageActivity.this)
+                    .withCompletionCallback(() -> finish())
+                    .start();
+            }
+        };
+        
+        getOnBackPressedDispatcher().addCallback(this, callback);
     }
 }

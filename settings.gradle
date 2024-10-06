@@ -24,6 +24,6 @@ dependencyResolutionManagement {
   }
 }
 
-rootProject.name = "anim"
+rootProject.name = "AnimationPro"
 
 include(":app",":AnimationPro")
