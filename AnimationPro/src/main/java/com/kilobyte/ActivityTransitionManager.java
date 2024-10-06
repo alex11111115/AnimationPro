@@ -30,6 +30,12 @@ public class ActivityTransitionManager {
         private long duration = DEFAULT_DURATION;
         private boolean withStatusBar = true;
         private Integer backgroundColor;
+        private Runnable completionCallback;
+        
+        public TransitionBuilder withCompletionCallback(Runnable callback) {
+            this.completionCallback = callback;
+            return this;
+        }
         
         public TransitionBuilder(@NonNull Activity activity) {
             this.activity = activity;
@@ -126,7 +132,9 @@ public class ActivityTransitionManager {
                 public void onAnimationEnd(Animator animation) {
                     ActivityOptionsCompat options = ActivityOptionsCompat.makeCustomAnimation(
                         activity, 0, 0);
-                    activity.finish();
+                    if (completionCallback != null) {
+                        completionCallback.run();
+                    }
                 }
             });
             

@@ -1,7 +1,7 @@
 {
   "allFiles": [
     {
-      "file": "/storage/emulated/0/AndroidIDEProjects/anim/README.md",
+      "file": "/storage/emulated/0/AndroidIDEProjects/AnimationPro/app/src/main/java/com/example/anim/MainActivity.java",
       "selection": {
         "end": {
           "column": 0,
@@ -14,7 +14,37 @@
           "line": 0
         }
       }
+    },
+    {
+      "file": "/storage/emulated/0/AndroidIDEProjects/AnimationPro/app/src/main/java/com/example/anim/PageActivity.java",
+      "selection": {
+        "end": {
+          "column": 47,
+          "index": 2446,
+          "line": 74
+        },
+        "start": {
+          "column": 47,
+          "index": 2446,
+          "line": 74
+        }
+      }
+    },
+    {
+      "file": "/storage/emulated/0/AndroidIDEProjects/AnimationPro/AnimationPro/src/main/java/com/kilobyte/ActivityTransitionManager.java",
+      "selection": {
+        "end": {
+          "column": 40,
+          "index": 5440,
+          "line": 133
+        },
+        "start": {
+          "column": 40,
+          "index": 5440,
+          "line": 133
+        }
+      }
     }
   ],
-  "selectedFile": "/storage/emulated/0/AndroidIDEProjects/anim/README.md"
+  "selectedFile": "/storage/emulated/0/AndroidIDEProjects/AnimationPro/AnimationPro/src/main/java/com/kilobyte/ActivityTransitionManager.java"
 }
