@@ -132,7 +132,7 @@ fab.setOnClickListener(v -> {
 ```groovy
 // The Magic Words 🎭
 dependencies {
-	        implementation 'com.github.alex11111115:AnimationPro:1.0'
+	        implementation 'com.github.alex11111115:AnimationPro:1.02'
 	}
 ```
 
