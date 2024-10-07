@@ -2,7 +2,7 @@
 /*
  * Copyright (C) 2024 The Android Open Source Project
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
+ * Licensed under the MIT licensed, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
@@ -28,8 +28,8 @@ android {
         applicationId "com.example.anim"
         minSdk 19
         targetSdk 34
-        versionCode 1
-        versionName "1.0"
+        versionCode 2
+        versionName "1.2"
         
         vectorDrawables { 
             useSupportLibrary true
