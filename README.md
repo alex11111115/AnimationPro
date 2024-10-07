@@ -5,7 +5,7 @@
 
 <p align="center">
   <a href="preview.mp4">
-    <img src="https://via.placeholder.com/800x450.png?text=Click+to+view+video" width="100%" alt="Animation Magic in Action">
+    <img src="https://via.placeholder.com/450x600.png?text=Click+to+view+video" width="100%" alt="Animation Magic in Action">
   </a>
 </p>
 
