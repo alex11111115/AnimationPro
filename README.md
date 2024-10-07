@@ -4,7 +4,10 @@
 [![ReadMeSupportPalestine](https://raw.githubusercontent.com/Safouene1/support-palestine-banner/master/banner-support.svg)](https://techforpalestine.org/learn-more)
 
 <p align="center">
-  <img src="preview.mp4" width="100%" alt="Animation Magic in Action">
+  <video width="100%" controls>
+    <source src="preview.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
 </p>
 
 [![](https://img.shields.io/badge/Platform-Android-3DDC84?style=for-the-badge&logo=android&logoColor=white)](https://developer.android.com/index.html)
