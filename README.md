@@ -4,7 +4,7 @@
 [![ReadMeSupportPalestine](https://raw.githubusercontent.com/Safouene1/support-palestine-banner/master/banner-support.svg)](https://techforpalestine.org/learn-more)
 
 <p align="center">
-  <img src="preview.gif" width="100%" alt="Animation Magic in Action">
+  <img src="preview.mp4" width="100%" alt="Animation Magic in Action">
 </p>
 
 [![](https://img.shields.io/badge/Platform-Android-3DDC84?style=for-the-badge&logo=android&logoColor=white)](https://developer.android.com/index.html)
@@ -26,13 +26,16 @@ Turn boring activity switches into cinematic experiences that would make Hollywo
 
 ```java
 // The Classic Enchantment ✨
-new ActivityTransitionManager.TransitionBuilder(activity)
+Intent intent = new Intent(MainActivity.this, PageActivity.class);
+new ActivityTransitionManager.TransitionBuilder(this)
     .setIntent(intent)
     .setDuration(300)
+    .setSourceView(v)
     .start();
 
 // The Premium Spellcast 🌟
-new ActivityTransitionManager.TransitionBuilder(activity)
+Intent intent = new Intent(MainActivity.this, PageActivity.class);
+new ActivityTransitionManager.TransitionBuilder(this)
     .setIntent(intent)
     .setDuration(300)
     .setBackgroundColor(Color.WHITE)
@@ -60,17 +63,8 @@ SmoothAnimationCreator.startFadeInAnimation(contentView);
 ### 🎪 Act 3: Touch Interactions That Feel Alive!
 
 ```java
-// The Dancing Card Trick 🃏
-View card = findViewById(R.id.card);
-TouchGestureHandler.initializeSwipeableView(card);
-
 // The Magic Touch ✨
-card.setOnTouchListener((v, event) -> {
-    if (event.getAction() == MotionEvent.ACTION_DOWN) {
-        AnimationEffectsCreator.startBounceAnimation(v);  // Boing! 🎯
-    }
-    return true;
-});
+AnimationManager.TouchGestureHandler.initializeSwipeableView((View) swipeableCard);
 ```
 
 ## 🎯 Why Developers are Falling in Love
@@ -92,22 +86,17 @@ card.setOnTouchListener((v, event) -> {
 
 ## 🎩 Magic Tricks Showcase
 
-### The Parallax Scroll Illusion 🌌
+### The Smooth Over Scroll Illusion 🌌
 ```java
-ScrollView scrollView = findViewById(R.id.scroll_view);
-View foreground = findViewById(R.id.foreground);
-View background = findViewById(R.id.background);
-scrollView.setOnScrollChangeListener((v, scrollX, scrollY, oldScrollX, oldScrollY) -> {
-    AnimationEffectsCreator.applyParallaxScrollEffect(foreground, background, scrollY);
-    // Watch the magic unfold! ✨
-});
+ScrollView scrollView = findViewById(R.id.scro);
+SmoothOverScrollHelper smoothOverScrollHelper = new SmoothOverScrollHelper(scro);
 ```
 
 ### The Floating Button Enchantment 🎈
 ```java
 fab.setOnClickListener(v -> {
-    AnimationEffectsCreator.startTapResponseAnimation(v);
-    AnimationEffectsCreator.startGradualScaleAnimation(v);
+    AnimationEffectsCreator.startTapResponseAnimation(_view);
+SmoothAnimationCreator.startGradualScaleAnimation(_view);
     // Your FAB now has a life of its own! 🎭
 });
 ```
@@ -132,7 +121,7 @@ fab.setOnClickListener(v -> {
 ```groovy
 // The Magic Words 🎭
 dependencies {
-	        implementation 'com.github.alex11111115:AnimationPro:1.0'
+	        implementation 'com.github.alex11111115:AnimationPro:1.2'
 	}
 ```
 

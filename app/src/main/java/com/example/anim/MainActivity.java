@@ -11,8 +11,12 @@ import android.widget.ProgressBar;
 import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.core.widget.NestedScrollView;
 import com.kilobyte.ActivityTransitionManager;
+import com.kilobyte.AnimationManager.AnimationEffectsCreator;
+import com.kilobyte.AnimationManager.SmoothAnimationCreator;
 import com.kilobyte.AnimationManager;
+import com.kilobyte.SmoothOverScrollHelper;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     private Button butoonTap;
     private ImageView imageViewSample;
     private ProgressBar loadingProgressBar;
+    private NestedScrollView scro;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
         setupAnimations();
         setupButton();
         setupBackPressedCallback();
+        SmoothOverScrollHelper smoothOverScrollHelper = new SmoothOverScrollHelper(scro);
     }
 
     /**
@@ -59,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
         butoonTap = findViewById(R.id.butoonTap);
         imageViewSample = findViewById(R.id.imageViewSample);
         loadingProgressBar = findViewById(R.id.loadingProgressBar);
+        scro = findViewById(R.id.scro);
     }
 
     /**
@@ -67,14 +74,16 @@ public class MainActivity extends AppCompatActivity {
     private void setupButton() {
         butoonTap.setOnClickListener(v -> {
             // Create tap animation effect
-            AnimationManager.AnimationEffectsCreator.startTapResponseAnimation(butoonTap);
+            AnimationEffectsCreator.startTapResponseAnimation(v);
+            SmoothAnimationCreator.startGradualScaleAnimation(v);
 
             // Start activity transition
             Intent intent = new Intent(MainActivity.this, PageActivity.class);
             new ActivityTransitionManager.TransitionBuilder(this)
-                .setIntent(intent)
-                .setSourceView(v)
-                .start();
+            .setIntent(intent)
+            .setDuration(200)
+            .setSourceView(v)
+            .start();
         });
     }
 

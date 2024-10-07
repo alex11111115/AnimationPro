@@ -25,8 +25,8 @@ import java.util.List;
 
 public class AnimationManager {
 
-    private static final int ANIMATION_STAGGER_DELAY = 50;
-    private static final int ANIMATION_BASE_DURATION = 500;
+    private static final int ANIMATION_STAGGER_DELAY = 20;
+    private static final int ANIMATION_BASE_DURATION = 250;
 
     public static class SmoothAnimationCreator {
         
@@ -87,12 +87,12 @@ public class AnimationManager {
         }
 
         public static void startGradualScaleAnimation(View targetView) {
-            ObjectAnimator scaleXAnimator = ObjectAnimator.ofFloat(targetView, "scaleX", 1f, 1.2f, 1f);
-            ObjectAnimator scaleYAnimator = ObjectAnimator.ofFloat(targetView, "scaleY", 1f, 1.2f, 1f);
+            ObjectAnimator scaleXAnimator = ObjectAnimator.ofFloat(targetView, "scaleX", 1f, 1.07f, 1f);
+            ObjectAnimator scaleYAnimator = ObjectAnimator.ofFloat(targetView, "scaleY", 1f, 1.07f, 1f);
 
             AnimatorSet scaleAnimationSet = new AnimatorSet();
             scaleAnimationSet.playTogether(scaleXAnimator, scaleYAnimator);
-            scaleAnimationSet.setDuration(1500);
+            scaleAnimationSet.setDuration(750);
             scaleAnimationSet.setInterpolator(new OvershootInterpolator());
             scaleAnimationSet.start();
         }
