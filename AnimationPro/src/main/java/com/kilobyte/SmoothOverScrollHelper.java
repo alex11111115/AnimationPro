@@ -9,15 +9,14 @@ import android.view.ViewGroup;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.GridView;
 import android.widget.HorizontalScrollView;
-import android.widget.ListView;
 import android.widget.ScrollView;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.core.widget.NestedScrollView;
 
 public class SmoothOverScrollHelper {
-    public static final float RESISTANCE_FACTOR = 0.4f;
+    public static final float RESISTANCE_FACTOR = 0.3f;
     public static final long BOUNCE_BACK_DURATION = 300;
-    public static final float MAX_OVERSCROLL_DISTANCE = 700f;
+    public static final float MAX_OVERSCROLL_DISTANCE = 500f;
 
     private View targetView;
     private float lastTouchX, lastTouchY;

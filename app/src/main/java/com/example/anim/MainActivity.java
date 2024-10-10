@@ -2,20 +2,23 @@ package com.example.anim;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Looper;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.ScrollView;
 import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
-import androidx.core.widget.NestedScrollView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import com.kilobyte.ActivityTransitionManager;
 import com.kilobyte.AnimationManager.AnimationEffectsCreator;
 import com.kilobyte.AnimationManager.SmoothAnimationCreator;
 import com.kilobyte.AnimationManager;
+import com.kilobyte.OverScrollSwipeRefreshLayout;
 import com.kilobyte.SmoothOverScrollHelper;
 import java.util.ArrayList;
 import java.util.List;
@@ -33,7 +36,8 @@ public class MainActivity extends AppCompatActivity {
     private Button butoonTap;
     private ImageView imageViewSample;
     private ProgressBar loadingProgressBar;
-    private NestedScrollView scro;
+    private SwipeRefreshLayout scro;
+    //private ScrollView scroll;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +56,17 @@ public class MainActivity extends AppCompatActivity {
         setupAnimations();
         setupButton();
         setupBackPressedCallback();
-        SmoothOverScrollHelper smoothOverScrollHelper = new SmoothOverScrollHelper(scro);
+        OverScrollSwipeRefreshLayout.enableOverScroll(scro);
+
+    // Set up the refresh listener to hide after 3 seconds
+    scro.setOnRefreshListener(() -> {
+        // Use a Handler to stop refreshing after 3 seconds
+        new android.os.Handler(Looper.getMainLooper()).postDelayed(() -> {
+            scro.setRefreshing(false); // End the refreshing animation
+        }, 3000); 
+    });
+
+        //SmoothOverScrollHelper sm = new SmoothOverScrollHelper(scroll);
     }
 
     /**
@@ -66,6 +80,7 @@ public class MainActivity extends AppCompatActivity {
         imageViewSample = findViewById(R.id.imageViewSample);
         loadingProgressBar = findViewById(R.id.loadingProgressBar);
         scro = findViewById(R.id.scro);
+        //scroll = findViewById(R.id.scroll);
     }
 
     /**

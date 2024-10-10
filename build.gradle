@@ -32,7 +32,7 @@ plugins {
 }
 
 group = 'com.kilobyte'
-version = '1.0'
+version = '1.33'
 
 if (tasks.findByName('clean') == null) {
     task clean(type: Delete) {
