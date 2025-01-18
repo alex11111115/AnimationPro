@@ -9,7 +9,7 @@
 
 [![](https://img.shields.io/badge/Platform-Android-3DDC84?style=for-the-badge&logo=android&logoColor=white)](https://developer.android.com/index.html)
 [![](https://img.shields.io/badge/API-21%2B-brightgreen?style=for-the-badge)](https://android-arsenal.com/api?level=21)
-[![](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)](https://opensource.org/licenses/MIT)
+[![](https://img.shields.io/badge/License-Apache-blue?style=for-the-badge)](https://opensource.org/licenses/Apache)
 [![](https://jitpack.io/v/alex11111115/AnimationPro.svg)](https://jitpack.io/#alex11111115/AnimationPro)
 
 ## 🌟 Why AnimationPro?
